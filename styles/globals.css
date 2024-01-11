@@ -2,26 +2,456 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'digital';
+  src: url('../fonts/digital-7.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+  --background: #14171d;
+  --primaryColor: rgb(33, 38, 49);
+  --defaultColor: rgba(0, 0, 0, .4);
+  --contrastColor: rgb(45, 170, 225);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3A413A #2E3030;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-neutral-950 text-white select-none
+}
+
+canvas {
+  width: 100%;
+  height: 100px
+}
+
+input[type="range"].track-fader-pan {
+  width: 70px;
+  margin: 6.8px auto;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="range"].track-fader-pan:focus {
+  outline: none;
+}
+
+input[type="range"].track-fader-pan::-webkit-slider-runnable-track {
+  background: #dadcde;
+  border: 2.8px solid #999fa4;
+  border-radius: 25px;
+  width: 100%;
+  height: 11.4px;
+  cursor: pointer;
+}
+
+input[type="range"].track-fader-pan::-webkit-slider-thumb {
+  margin-top: -7px;
+  width: 20px;
+  height: 20px;
+  background: var(--primaryColor);
+  border: 1.8px solid #e4e3e7;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type="range"].track-fader-volume::-webkit-slider-thumb {
+  margin-top: -9.6px;
+  width: 34px;
+  height: 25px;
+  background: #ffffff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .6);
+  border: 1.8px solid #e4e3e7;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type="range"].track-fader-pan:focus::-webkit-slider-runnable-track {
+  background: #ffffff;
+}
+
+input[type="range"].track-fader-pan::-moz-range-track {
+  background: #dadcde;
+  border: 2.8px solid var(--primary-color);
+  border-radius: 25px;
+  width: 100%;
+  height: 11.4px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-pan::-moz-range-thumb {
+  width: 34px;
+  height: 25px;
+  background: #4a4b4d;
+  border: 1.8px solid #e4e3e7;
+  border-radius: 28px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-pan::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 8.6px 0;
+  color: transparent;
+  width: 100%;
+  height: 11.4px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-pan::-ms-fill-lower {
+  background: #999fa4;
+  border: 2.8px solid var(--primary-color);
+  border-radius: 50px;
+}
+
+input[type=range].track-fader-pan::-ms-fill-upper {
+  background: #dadcde;
+  border: 2.8px solid var(--primary-color);
+  border-radius: 50px;
+}
+
+input[type=range].track-fader-pan::-ms-thumb {
+  width: 34px;
+  height: 25px;
+  background: #3e3f41;
+  border: 1.8px solid #e4e3e7;
+  border-radius: 28px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range].track-fader-pan:focus::-ms-fill-lower {
+  background: #dadcde;
+}
+
+input[type=range].track-fader-pan:focus::-ms-fill-upper {
+  background: #ffffff;
+}
+
+/*---------------------------------------------------------------------*/
+
+input[type=range].track-fader-volume {
+  transform: rotate(-90deg);
+  width: 120px;
+  margin: 60px 0px;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type=range].track-fader-volume:focus {
+  outline: none;
+}
+
+input[type=range].track-fader-volume::-webkit-slider-runnable-track {
+  background: var(--primaryColor);
+  border: 0px solid rgba(1, 1, 0, 0);
+  border: 0;
+  border-radius: 2.8px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-volume::-webkit-slider-thumb {
+  margin-top: 0px;
+  width: 20px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type=range].track-fader-volume:focus::-webkit-slider-runnable-track {
+  background: var(--primaryColor);
+}
+
+input[type=range].track-fader-volume::-moz-range-track {
+  background: var(--primaryColor);
+  border: 0px solid rgba(1, 1, 0, 0);
+  border: 0;
+  border-radius: 2.8px;
+  width: 100%;
+  height: 33.6px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-volume::-moz-range-thumb {
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-volume::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 2.2px 0;
+  color: transparent;
+  width: 100%;
+  height: 33.6px;
+  cursor: pointer;
+}
+
+input[type=range].track-fader-volume::-ms-fill-lower {
+  background: var(--primaryColor);
+  border: 0px solid rgba(1, 1, 0, 0);
+  border: 0;
+  border-radius: 5.6px;
+}
+
+input[type=range].track-fader-volume::-ms-fill-upper {
+  background: var(--primaryColor);
+  border: 0px solid rgba(1, 1, 0, 0);
+  border: 0;
+  border-radius: 5.6px;
+}
+
+input[type=range].track-fader-volume::-ms-thumb {
+  width: 36px;
+  height: 36px;
+  background: var(--primaryColor);
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type=range].track-fader-volume:focus::-ms-fill-lower {
+  background: var(--primaryColor);
+}
+
+input[type=range].track-fader-volume:focus::-ms-fill-upper {
+  background: var(--primaryColor);
+}
+
+.volumen-indicator {
+  position: absolute;
+  z-index: 1;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+#fountainG {
+  position: relative;
+  width: 234px;
+  height: 28px;
+  margin: 10px auto 20px;
+}
+
+.fountainG {
+  position: absolute;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  width: 28px;
+  height: 28px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 2.28s;
+  -o-animation-duration: 2.28s;
+  -ms-animation-duration: 2.28s;
+  -webkit-animation-duration: 2.28s;
+  -moz-animation-duration: 2.28s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(.3);
+  -o-transform: scale(.3);
+  -ms-transform: scale(.3);
+  -webkit-transform: scale(.3);
+  -moz-transform: scale(.3);
+  border-radius: 19px;
+  -o-border-radius: 19px;
+  -ms-border-radius: 19px;
+  -webkit-border-radius: 19px;
+  -moz-border-radius: 19px;
+}
+
+#fountainG_1 {
+  left: 0;
+  animation-delay: 0.91s;
+  -o-animation-delay: 0.91s;
+  -ms-animation-delay: 0.91s;
+  -webkit-animation-delay: 0.91s;
+  -moz-animation-delay: 0.91s;
+}
+
+#fountainG_2 {
+  left: 29px;
+  animation-delay: 1.14s;
+  -o-animation-delay: 1.14s;
+  -ms-animation-delay: 1.14s;
+  -webkit-animation-delay: 1.14s;
+  -moz-animation-delay: 1.14s;
+}
+
+#fountainG_3 {
+  left: 58px;
+  animation-delay: 1.37s;
+  -o-animation-delay: 1.37s;
+  -ms-animation-delay: 1.37s;
+  -webkit-animation-delay: 1.37s;
+  -moz-animation-delay: 1.37s;
+}
+
+#fountainG_4 {
+  left: 88px;
+  animation-delay: 1.59s;
+  -o-animation-delay: 1.59s;
+  -ms-animation-delay: 1.59s;
+  -webkit-animation-delay: 1.59s;
+  -moz-animation-delay: 1.59s;
+}
+
+#fountainG_5 {
+  left: 117px;
+  animation-delay: 1.82s;
+  -o-animation-delay: 1.82s;
+  -ms-animation-delay: 1.82s;
+  -webkit-animation-delay: 1.82s;
+  -moz-animation-delay: 1.82s;
+}
+
+#fountainG_6 {
+  left: 146px;
+  animation-delay: 2.05s;
+  -o-animation-delay: 2.05s;
+  -ms-animation-delay: 2.05s;
+  -webkit-animation-delay: 2.05s;
+  -moz-animation-delay: 2.05s;
+}
+
+#fountainG_7 {
+  left: 175px;
+  animation-delay: 2.28s;
+  -o-animation-delay: 2.28s;
+  -ms-animation-delay: 2.28s;
+  -webkit-animation-delay: 2.28s;
+  -moz-animation-delay: 2.28s;
+}
+
+#fountainG_8 {
+  left: 205px;
+  animation-delay: 2.5s;
+  -o-animation-delay: 2.5s;
+  -ms-animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+}
+
+.meter {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  gap: 3px;
+  border-top: 1px solid rgba(0, 0, 0, .2);
+  border-right: 8px solid rgba(0, 0, 0, .2);
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-left: 8px solid rgba(0, 0, 0, .2);
+}
+
+.meter div {
+  width: auto;
+  height: 8px;
+  background-color: var(--contrastColor);
+  opacity: .4;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 200px;
+  background-color: #3e3f41;
+  overflow: hidden;
+}
+
+.slider .progress {
+  height: 50px;
+  background-color: #21c49b;
+}
+
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
+    background-color: rgb(41, 136, 245);
+  }
+
+  100% {
+    transform: scale(.3);
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@-o-keyframes bounce_fountainG {
+  0% {
+    -o-transform: scale(1);
+    background-color: rgb(41, 136, 245);
+  }
+
+  100% {
+    -o-transform: scale(.3);
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@-ms-keyframes bounce_fountainG {
+  0% {
+    -ms-transform: scale(1);
+    background-color: rgb(41, 136, 245);
+  }
+
+  100% {
+    -ms-transform: scale(.3);
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: rgb(41, 136, 245);
+  }
+
+  100% {
+    -webkit-transform: scale(.3);
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@-moz-keyframes bounce_fountainG {
+  0% {
+    -moz-transform: scale(1);
+    background-color: rgb(41, 136, 245);
+  }
+
+  100% {
+    -moz-transform: scale(.3);
+    background-color: rgba(255, 255, 255, 0);
+  }
 }
