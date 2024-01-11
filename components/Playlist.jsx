@@ -51,7 +51,7 @@ function Playlist() {
                         return (
                             <SortableItem key={multitrack.metadata.id}>
                                 <div
-                                    className="group relative border-2 pr-4 overflow-hidden border-neutral-700 max-w-[280px] max-h-20 rounded-3xl grid grid-cols-[80px_1fr] items-center gap-2"
+                                    className="relative group border-2 pr-4 overflow-hidden border-neutral-700 max-w-[280px] max-h-16 rounded-3xl grid grid-cols-[60px_1fr] items-center gap-2"
                                     onTouchEnd={() => handleLoadToMixer(multitrack.tracks)}
                                     onDoubleClick={() => handleLoadToMixer(multitrack.tracks)}>
 
@@ -63,7 +63,7 @@ function Playlist() {
                                     <div className="overflow-hidden">
                                         <p className="truncate text-ellipsis"> {multitrack.metadata.name} - {multitrack.metadata.artists} </p>
                                     </div>
-                                    <div className="group-hover:flex absolute top-6 left-4 hidden bg-black rounded-full bg-opacity-60 p-2" onClick={() => handleToggleDialog(multitrack.metadata.id)}>
+                                    <div className="group-hover:flex absolute top-3 left-4 hidden bg-black rounded-full bg-opacity-60 p-2" onClick={() => handleToggleDialog(multitrack.metadata.id)}>
                                         <FaTrash />
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@ function Dialog({ show, title, body, textAcceptButton = "ok", callback, callback
     return (
         <div className={`fixed flex items-center justify-center bg-black bg-opacity-30 w-full h-screen z-50 top-0 left-0 ${show ? 'flex' : 'hidden'}`}>
             <div className="bg-neutral-900 max-w-[320px] w-[95%] p-2">
-                <div className="flex items-center justify-between w-full border border-neutral-700">
+                <div className="flex items-center justify-between w-full border-b border-neutral-700">
                     <h4 className="font-semibold"> {title} </h4>
                     <span className="text-sm text-white" onClick={callbackClose}>&#10006;</span>
                 </div>
