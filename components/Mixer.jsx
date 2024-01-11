@@ -48,12 +48,12 @@ function Peaks() {
 }
 
 function Mixer() {
-
     const currentSource = useSelector((state) => state.currentSource)
+    const isMountMixer = currentSource.length > 0
 
     const Skeleton = () => {
         return (
-            <div className="mixer__empty">
+            <div className="w-full min-h-[200px] flex items-center justify-center font-semibold">
                 <h1>Selecciona un Multitrack</h1>
             </div>
         )
@@ -62,7 +62,7 @@ function Mixer() {
     return (
         <div className="w-full">
             <div className="flex items-stretch bg-black bg-opacity-50 p-4 rounded-md">
-                <div className="w-full overflow-x-auto p-4">
+                <div className={`${isMountMixer ? 'block' : 'hidden'} w-full min-h-[200px] overflow-x-auto p-4`}>
                     <div className="flex min-w-fit items-center gap-2">
                         {
                             currentSource.length > 0 && currentSource.map((audio, index) => (
@@ -74,7 +74,8 @@ function Mixer() {
                     </div>
                 </div>
                 {
-                    currentSource.length > 0
+
+                    isMountMixer
                         ? <MixerControl />
                         : <Skeleton />
                 }

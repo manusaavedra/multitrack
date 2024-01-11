@@ -27,7 +27,7 @@ function Dialog({ show, title, body, textAcceptButton = "ok", callback, callback
     return (
         <div className={`fixed z-50 top-0 left-0 w-full h-full ${show ? 'flex' : 'hidden'} justify-center items-center`}>
             <div className="absolute top-0 left-0 w-full h-full" onClick={callbackClose}></div>
-            <div className="bg-neutral-800 rounded-md p-2 max-w-4xl mx-auto w-full max-h-[400px] overflow-y-auto">
+            <div className="bg-neutral-800 relative rounded-md p-2 max-w-4xl mx-auto w-full max-h-[400px] overflow-y-auto">
                 <div className="flex items-center justify-between w-full">
                     <h4> {title} </h4>
                     <span onClick={callbackClose}>&#10006;</span>

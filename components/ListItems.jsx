@@ -135,7 +135,7 @@ function ListItems() {
                             <div>
                                 <span className="truncate text-ellipsis"> {session.name} </span>
                             </div>
-                            <input className="item__checkbox" onChange={handleSelection} type="checkbox" value={session.id} />
+                            <input className="w-full" onChange={handleSelection} type="checkbox" value={session.id} />
                         </li>
                     ))
                 }

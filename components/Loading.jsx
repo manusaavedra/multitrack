@@ -1,7 +1,7 @@
 export default function ActivityIndicator({ open, text = "Cargando..." }) {
 
     return (
-        <div style={{ display: open ? 'grid' : 'none' }} className="loading">
+        <div className={`fixed top-0 left-0 place-items-center ${open ? 'grid' : 'hidden'}`}>
             <div id="fountainG">
                 <div id="fountainG_1" className="fountainG"></div>
                 <div id="fountainG_2" className="fountainG"></div>

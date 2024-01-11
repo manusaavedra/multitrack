@@ -11,8 +11,8 @@ export default function ProgressBar() {
                 type="range"
                 className="accent-cyan-500 w-full rounded-sm"
                 max={duration}
-                value={time}
-                defaultValue={0} />
+                defaultValue={time}
+            />
         </div>
     )
 }
