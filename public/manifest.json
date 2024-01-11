@@ -8,12 +8,12 @@
       "type": "image/x-icon"
     },
     {
-      "src": "iso-logo.png",
+      "src": "/iso-logo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "iso-logo.png",
+      "src": "/iso-logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
