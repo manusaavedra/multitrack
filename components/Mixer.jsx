@@ -61,8 +61,8 @@ function Mixer() {
 
     return (
         <div className="w-full">
-            <div className="flex items-stretch bg-black bg-opacity-50 p-4 rounded-md">
-                <div className={`${isMountMixer ? 'block' : 'hidden'} w-full min-h-[200px] overflow-x-auto p-4`}>
+            <div className="flex items-stretch bg-black bg-opacity-50 p-1 rounded-md">
+                <div className={`${isMountMixer ? 'block' : 'hidden'} w-full min-h-[200px] overflow-x-auto p-1`}>
                     <div className="flex min-w-fit items-center gap-2">
                         {
                             currentSource.length > 0 && currentSource.map((audio, index) => (
@@ -98,7 +98,7 @@ function MixerControl() {
             <input
                 onInput={handleChangeVolume}
                 type="range"
-                className="track-fader-volume !w-[300px] !-mx-24 md:!-mx-20 !h-[32]"
+                className="track-fader-volume !w-[140px] !-mx-2 md:!-mx-2 !h-[24]"
                 orient="vertical"
                 min={-80}
                 max={10}

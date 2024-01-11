@@ -51,7 +51,7 @@ function Playlist() {
                         return (
                             <SortableItem key={multitrack.metadata.id}>
                                 <div
-                                    className="relative group border-2 pr-4 overflow-hidden border-neutral-700 max-w-[280px] max-h-16 rounded-3xl grid grid-cols-[60px_1fr] items-center gap-2"
+                                    className="relative group border-2 pr-4 overflow-hidden border-neutral-700 max-w-[280px] max-h-14 rounded-3xl grid grid-cols-[50px_1fr] items-center gap-2"
                                     onTouchEnd={() => handleLoadToMixer(multitrack.tracks)}
                                     onDoubleClick={() => handleLoadToMixer(multitrack.tracks)}>
 

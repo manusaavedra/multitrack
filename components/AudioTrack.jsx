@@ -97,7 +97,7 @@ function AudioTrack({ source }) {
     }
 
     return (
-        <div className="border min-w-[120px] justify-center overflow-hidden border-neutral-800 rounded-md grid grid-rows-[30px_1fr_16px_80px] grid-cols-1 gap-4 min-h-fit">
+        <div className="border min-w-[110px] justify-center items-center overflow-hidden border-neutral-800 rounded-md grid grid-rows-[20px_60px_90px_0px] grid-cols-1 gap-2">
             <div className="flex items-center justify-center py-2 px-1 overflow-hidden h-full w-full text-center bg-black">
                 <span className="truncate text-ellipsis">
                     {titleSource}
@@ -106,7 +106,7 @@ function AudioTrack({ source }) {
             <div>
                 <input
                     ref={volRef}
-                    className="track-fader-volume"
+                    className="track-fader-volume !m-1 !mt-8"
                     onInput={(evt) => handleVolumenChange(evt)}
                     type="range"
                     min={-80}
@@ -128,7 +128,7 @@ function AudioTrack({ source }) {
                 />
                 R
             </div>
-            <div className="flex items-center gap-2 justify-center">
+            <div className="mt-[-40px] flex items-center gap-2 justify-center">
                 {
                     <>
                         <ButtonMute refs={muteRef} onClick={handleMute}>M</ButtonMute>

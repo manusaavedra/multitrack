@@ -7,7 +7,7 @@ export default function Watch() {
 
     return (
         <>
-            <div className="flex w-[100px] h-full flex-col bg-black bg-opacity-30 px-2 rounded-md">
+            <div className="flex w-[100px] h-[95%] flex-col bg-black bg-opacity-30 px-2 rounded-md">
                 <span className="text-2xl font-[digital]">{toStringTime(time)}</span>
                 <div>
                     <p className="text-xs">{toStringTime(time)} / {toStringTime(duration)}</p>
