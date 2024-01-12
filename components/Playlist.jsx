@@ -63,7 +63,7 @@ function Playlist() {
                                     <div className="overflow-hidden">
                                         <p className="truncate text-ellipsis"> {multitrack.metadata.name} - {multitrack.metadata.artists} </p>
                                     </div>
-                                    <div className="group-hover:flex absolute top-3 left-4 hidden bg-black rounded-full bg-opacity-60 p-2" onClick={() => handleToggleDialog(multitrack.metadata.id)}>
+                                    <div className="group-hover:flex absolute top-2 left-3 hidden bg-black rounded-full bg-opacity-60 p-2" onClick={() => handleToggleDialog(multitrack.metadata.id)}>
                                         <FaTrash />
                                     </div>
                                 </div>

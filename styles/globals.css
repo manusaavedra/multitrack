@@ -45,8 +45,8 @@ input[type="range"].track-fader-pan:focus {
 }
 
 input[type="range"].track-fader-pan::-webkit-slider-runnable-track {
-  background: #dadcde;
-  border: 2.8px solid #999fa4;
+  background: #1a1a1a;
+  border: 1px solid #2f2f2f;
   border-radius: 25px;
   width: 100%;
   height: 11.4px;
@@ -54,11 +54,11 @@ input[type="range"].track-fader-pan::-webkit-slider-runnable-track {
 }
 
 input[type="range"].track-fader-pan::-webkit-slider-thumb {
-  margin-top: -7px;
-  width: 20px;
-  height: 20px;
-  background: var(--primaryColor);
-  border: 1.8px solid #e4e3e7;
+  margin-top: -3px;
+  width: 16px;
+  height: 16px;
+  background: #3A413A;
+  border: 1px solid #202020;
   border-radius: 4px;
   cursor: pointer;
   -webkit-appearance: none;
@@ -68,16 +68,16 @@ input[type="range"].track-fader-volume::-webkit-slider-thumb {
   margin-top: -9.6px;
   width: 34px;
   height: 25px;
-  background: #ffffff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .6);
-  border: 1.8px solid #e4e3e7;
+  background: #bcbcbc;
+  box-shadow: 0 2px 2px 0 #202020;
+  border: 1.8px solid #bcbcbc;
   border-radius: 4px;
   cursor: pointer;
   -webkit-appearance: none;
 }
 
 input[type="range"].track-fader-pan:focus::-webkit-slider-runnable-track {
-  background: #ffffff;
+  background: #363636;
 }
 
 input[type="range"].track-fader-pan::-moz-range-track {
@@ -101,31 +101,31 @@ input[type=range].track-fader-pan::-moz-range-thumb {
 input[type=range].track-fader-pan::-ms-track {
   background: transparent;
   border-color: transparent;
-  border-width: 8.6px 0;
+  border-width: 1px 0;
   color: transparent;
   width: 100%;
-  height: 11.4px;
+  height: 6px;
   cursor: pointer;
 }
 
 input[type=range].track-fader-pan::-ms-fill-lower {
   background: #999fa4;
-  border: 2.8px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 50px;
 }
 
 input[type=range].track-fader-pan::-ms-fill-upper {
   background: #dadcde;
-  border: 2.8px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 50px;
 }
 
 input[type=range].track-fader-pan::-ms-thumb {
-  width: 34px;
-  height: 25px;
+  width: 16px;
+  height: 16px;
   background: #3e3f41;
-  border: 1.8px solid #e4e3e7;
-  border-radius: 28px;
+  border: 1px solid #e4e3e7;
+  border-radius: 0px;
   cursor: pointer;
   margin-top: 0px;
   /*Needed to keep the Edge thumb centred*/
@@ -155,7 +155,7 @@ input[type=range].track-fader-volume:focus {
 }
 
 input[type=range].track-fader-volume::-webkit-slider-runnable-track {
-  background: var(--primaryColor);
+  background: #202020;
   border: 0px solid rgba(1, 1, 0, 0);
   border: 0;
   border-radius: 2.8px;
@@ -174,11 +174,11 @@ input[type=range].track-fader-volume::-webkit-slider-thumb {
 }
 
 input[type=range].track-fader-volume:focus::-webkit-slider-runnable-track {
-  background: var(--primaryColor);
+  background: #202020;
 }
 
 input[type=range].track-fader-volume::-moz-range-track {
-  background: var(--primaryColor);
+  background: #202020;
   border: 0px solid rgba(1, 1, 0, 0);
   border: 0;
   border-radius: 2.8px;
@@ -190,7 +190,7 @@ input[type=range].track-fader-volume::-moz-range-track {
 input[type=range].track-fader-volume::-moz-range-thumb {
   width: 36px;
   height: 36px;
-  background: #ffffff;
+  background: #e6e6e6;
   border: 1px solid #000000;
   border-radius: 3px;
   cursor: pointer;

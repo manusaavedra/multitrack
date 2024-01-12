@@ -8,8 +8,8 @@ export default function ButtonAdd({ disabled }) {
 
     return (
         <>
-            <button className="rounded-md border-2 border-neutral-700 flex items-center justify-center p-3" onClick={toggle} disabled={disabled}>
-                <FaPlus />
+            <button className="rounded-md border-2 border-neutral-700 flex items-center justify-center p-2" onClick={toggle} disabled={disabled}>
+                <FaPlus size={12} />
             </button>
             <Dialog
                 show={isSelected}
@@ -27,7 +27,7 @@ function Dialog({ show, title, body, textAcceptButton = "ok", callback, callback
     return (
         <div className={`fixed z-50 top-0 left-0 w-full h-full ${show ? 'flex' : 'hidden'} justify-center items-center`}>
             <div className="absolute top-0 left-0 w-full h-full" onClick={callbackClose}></div>
-            <div className="bg-neutral-800 relative rounded-md p-2 max-w-xl mx-auto w-full max-h-[400px] overflow-y-auto">
+            <div className="bg-neutral-800 relative rounded-md p-2 max-w-xl mx-auto w-[95%] max-h-[400px] overflow-y-auto">
                 <div className="flex items-center justify-between w-full">
                     <h4> {title} </h4>
                     <span onClick={callbackClose}>&#10006;</span>

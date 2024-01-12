@@ -152,7 +152,7 @@ function ButtonMute({ onClick }) {
     }
 
     return (
-        <button className={`w-8 rounded-md p-1 border-2 border-red-700 ${isSelected ? 'bg-red-700' : ''}`} onClick={handleToggleMute}>M</button>
+        <button className={`w-8 rounded-md px-1 border-2 border-red-700 ${isSelected ? 'bg-red-700' : ''}`} onClick={handleToggleMute}>M</button>
     )
 }
 
@@ -166,7 +166,7 @@ function ButtonSolo({ onClick }) {
     }
 
     return (
-        <button className={`w-8 rounded-md p-1 border-2 border-yellow-700 ${isSelected ? 'bg-yellow-700 text-white' : ''}`} onClick={handleToggleSolo}>S</button>
+        <button className={`w-8 rounded-md px-1 border-2 border-yellow-700 ${isSelected ? 'bg-yellow-700 text-white' : ''}`} onClick={handleToggleSolo}>S</button>
     )
 }
 

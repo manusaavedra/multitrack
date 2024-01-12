@@ -119,15 +119,15 @@ function ListItems() {
 
 
     return (
-        <div>
+        <div className="flex flex-col gap-2">
             {
                 loading.state ? <ActivityIndicator open={loading.state} text={loading.text} /> : null
             }
             <ul>
                 {
                     !loadingMultitrack && list.map((session) => (
-                        <li key={session.id} className="grid grid-cols-[60px_1fr_20px] gap-2 items-center py-2">
-                            <div>
+                        <li key={session.id} className="grid grid-cols-[60px_1fr_20px] gap-2 items-center py-1 border-b border-neutral-700">
+                            <div className="rounded-lg overflow-hidden w-[95%]">
                                 <picture>
                                     <img src={session.featured} alt={session.name} />
                                 </picture>
@@ -141,7 +141,7 @@ function ListItems() {
                 }
             </ul>
             <div className="flex items-center justify-end">
-                <button className="bg-neutral-900 font-semibold p-2 flex items-center justify-center gap-2" onClick={multitrackLoader}>
+                <button className="bg-neutral-900 rounded-md w-full sm:w-auto font-semibold p-2 flex items-center justify-center gap-2" onClick={multitrackLoader}>
                     <FaPlus />
                     Agregar secuencias seleccionadas
                 </button>

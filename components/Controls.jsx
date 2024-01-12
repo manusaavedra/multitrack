@@ -27,14 +27,14 @@ export default function Controls() {
 
     return (
         <div className="flex items-center gap-2">
-            <button ref={buttonPlay} onClick={() => togglePlay()} className="rounded-full flex items-center justify-center border-2 border-neutral-700 p-3" value="Reproducir" title="Reproducir">
+            <button ref={buttonPlay} onClick={() => togglePlay()} className="rounded-full flex items-center justify-center border-2 border-neutral-700 p-2" value="Reproducir" title="Reproducir">
                 {
-                    !isPlay ? <FaPlay size={16} /> : <FaPause size={16} />
+                    !isPlay ? <FaPlay size={12} /> : <FaPause size={14} />
                 }
             </button>
 
-            <button onClick={() => stop()} className="rounded-md border-2 border-red-700 bg-red-700 flex items-center justify-center p-3" value="Detener" title="Detener">
-                <FaStop size={16} />
+            <button onClick={() => stop()} className="rounded-md border-2 border-red-800 bg-red-800 flex items-center justify-center p-2" value="Detener" title="Detener">
+                <FaStop size={12} />
             </button>
             <AddButton disabled={isPlay} />
         </div>
